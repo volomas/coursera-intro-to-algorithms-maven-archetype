@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!--  ***********************************************************************  -->
+    <!--  ALGS4.JAR EXCEPTIONS                                                     -->
+    <!--  ***********************************************************************  -->
+
+    <!-- phi() and Phi(), which are now deprecated -->
+    <suppress checks="MethodNameCheck"
+              files="(Gaussian|ErrorFunction).java"/>
+
+    <suppress checks="EmptyStatement"
+              files="(Evaluate|Quick3stringX).java"/>
+
+    <!-- median of 3 -->
+    <suppress checks="AvoidInlineConditionals"
+              files="Quick.*.java"/>
+
+    <suppress checks="ParameterAssignmentCheck"
+              files="(.*BST|UF|MinPQ|MaxPQ|Heap|Heapify|.*TST|Trie.*|StringSET).java"/>
+
+    <suppress checks="ParameterAssignmentCheck"
+              files="(SuffixArrayMerge|SuffixArrayX|Manber).java"/>
+
+    <suppress checks="ParameterNumberCheck"
+              files="TraceBentleyMcIlroyPartition.java"/>
+
+    <suppress checks="EmptyStatement"
+              files="(QuickX).java"/>
+
+    <suppress id="Wrapper"
+              files="(IndexMinPQ|IndexMaxPQ|AdjMatrixGraph|AdjMatrixDigraph).java"/>
+
+    <suppress id="Wrapper"
+              files="(Autoboxing|MutableInteger|SortCompare|.*Reflection|.*OfInts|.*OfIntegers|Memory.*).java"/>
+
+    <suppress id="Wrapper"
+              files="(KendallTau|Inversions|Distinct|SecureShuffle|PermutationInplace).java"/>
+
+    <!-- shifting and masking -->
+    <suppress id="BitwiseAnd"
+              files="(PatriciaSET|PatriciaST|LSD|MSD|HexDump|OneWay|AmericanFlag|AmericanFlagX|.*HashST).java"/>
+
+    <!-- intentionally buggy program -->
+    <suppress checks="CovariantEquals"
+              files="CovariantPhoneNumber.java"/>
+
+    <!-- has a deeply nested loop -->
+    <suppress checks="NestedForDepth"
+              files="EuclideanGraph.java"/>
+
+    <!-- more than one statement per line -->
+    <suppress checks="OneStatementPerLine"
+              files="Inversions.java"/>
+
+    <!-- long line -->
+    <suppress checks="LineLength"
+              files="Inversions.java"/>
+
+    <!-- methods named V() and E() -->
+    <suppress checks="MethodName"
+              files="(Digraph|Graph|Network|GraphX).java"/>
+
+    <!-- RM for RabinKarp -->
+    <suppress checks="MemberName"
+              files="RabinKarp.java"/>
+
+    <!-- Calls Math.random() -->
+    <suppress id="AvoidMathRandom"
+              files="Knuth.java"/>
+
+    <!-- Calls Math.pow(x, 0.5) -->
+    <suppress id="Sqrt"
+              files="Stopwatch(CPU)?.java"/>
+
+    <!-- Local variable named H -->
+    <suppress checks="LocalVariableName"
+              files="(GlobalMincut|UniqueMincut|DirectedEulerianPath|DirectedEulerianCycle|BipartiteMatchingToMaxflow).java"/>
+
+    <!-- Local variable named F -->
+    <suppress checks="LocalVariableName"
+              files="(Bipartite|BipartiteX|DirectedCycleX|EdgeWeightedDirectedCycle|TopologicalX).java"/>
+
+    <!-- parameters named V1 and V2 -->
+    <suppress checks="ParameterName"
+              files="(Digraph|Graph)Generator.java"/>
+
+    <!-- method named R(), now deprecated -->
+    <suppress checks="MethodName"
+              files="Alphabet.java"/>
+
+    <!-- method named R2() -->
+    <suppress checks="MethodName"
+              files=".*Regression.java"/>
+
+    <!-- copy constructor -->
+    <suppress checks="HiddenField"
+              files="(Digraph|Graph|Network|RabinKarp).java"/>
+
+
+    <suppress files="MultiwayMinPQ.java"          checks="[a-zA-Z0-9]*"/>
+    <suppress files="FibonacciMinPQ.java"         checks="[a-zA-Z0-9]*"/>
+    <suppress files="BinomialMinPQ.java"          checks="[a-zA-Z0-9]*"/>
+    <suppress files="FenwickTree.java"            checks="[a-zA-Z0-9]*"/>
+    <suppress files="SegmentTree.java"            checks="[a-zA-Z0-9]*"/>
+    <suppress files="TestLayoutBug.java"          checks="[a-zA-Z0-9]*"/>
+    <suppress files=".*DualPivotQuicksort.*.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="BentleyMcIlroyJava6.java"    checks="[a-zA-Z0-9]*"/>
+    <suppress files="Sort[3-6].java"              checks="[a-zA-Z0-9]*"/>
+
+    <!--  ***********************************************************************  -->
+    <!--  IGNORE HEADER CHECKS EXCEPT ON CERTAIN FILES                             -->
+    <!--  ***********************************************************************  -->
+
+    <!-- suppress header check except on COS 126 and COS 226 required files -->
+    <!-- this formatting hack seems to enable us to split regexp over several lines  -->
+    <suppress id="Header"
+              files="^(?!.*\b(readme.txt|
+                         |HelloWorld.java|HiFour.java|Ordered.java|GreatCircle.java|RGBtoCMYK.java|
+                         |Bits.java|Checkerboard.java|NoonSnooze.java|RandomWalker.java|RandomWalkers.java|RollDice.java|  
+                         |NBody.java|
+                         |Transform2D.java|Sierpinski.java|Art.java|
+                         |LFSR.java|PhotoMagic.java|
+                         |RingBuffer.java|GuitarString|GuitarHero.java|
+                         |MarkovModel.java|TextGenerator.java|
+                         |Tour.java|
+                         |Blob.java|BeadFinder.java|BeadTracker.java|Avogadro.java|
+                         |Percolation.java|PercolationStats.java|
+                         |Deque.java|RandomizedQueue.java|Permutation.java|
+                         |Autocomplete.java|BinarySearchDeluxe.java|Term.java|
+                         |Board.java|Solver.java|
+                         |PointST.java|KdTreeST.java|
+                         |WordNet.java|ShortestCommonAncestor.java|Outcast.java|
+                         |SeamCarver.java|
+                         |MoveToFront.java|BurrowsWheeler.java)$).*$"/>
+
+    <!--  ***********************************************************************  -->
+    <!--  IGNORE LINELENGTH, MAINCALLS, and COMMENT EXCEPT ON CERTAIN FILES        -->
+    <!--  ***********************************************************************  -->
+
+    <suppress checks="LineLengthCheck|MainCallsAllPublicMethods|CommentCheck"
+              files="^(?!.*(HiFour|Ordered|GreatCircle|RGBtoCMYK|
+                         |Bits|Checkerboard|NoonSnooze|RandomWalker|RandomWalkers|RollDice|
+                         |NBody|
+                         |Transform2D|Sierpinski|Art|
+                         |LFSR|PhotoMagic|
+                         |RingBuffer|GuitarString|GuitarHero|
+                         |MarkovModel|TextGenerator|
+                         |Tour|
+                         |Blob|BeadFinder|BeadTracker|Avogadro|
+                         |Percolation|PercolationStats|
+                         |Deque|RandomizedQueue|
+                         |Autocomplete|BinarySearchDeluxe|Term|
+                         |Board|Solver|
+                         |PointST|KdTreeST|
+                         |WordNet|ShortestCommonAncestor|
+                         |SeamCarver|
+                         |MoveToFront|BurrowsWheeler|
+                         |HelloGoodbye|RightTriangle|GreatCircle|CMYKtoRGB|
+                         |GeneralizedHarmonic|BandMatrix|RandomWalker|RandomWalkers|
+                         |DiscreteDistribution|ThueMorse|Birthday|
+                         |ShannonEntropy|Checkerboard|WorldMap|
+                         |ActivationFunction|Divisors|AudioCollage|
+                         |TrinomialBrute|TrinomialDP|RevesPuzzle|
+                         |Inversions|Ramanujan|MaximumSquareSubmatrix|
+                         |Huntingtons|KernelFilter|
+                         |ColorHSB|Clock|
+                         |BruteCollinearPoints|FastCollinearPoints|Point|
+                         |BaseballElimination|
+                         |BoggleSolver|
+                     ).java$).*$"/>
+</suppressions>
+

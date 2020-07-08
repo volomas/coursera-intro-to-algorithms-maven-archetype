@@ -24,6 +24,83 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <rulesets>
+                        <ruleset>other/pmd.xml</ruleset>
+                    </rulesets>
+                    <verbose>true</verbose>
+                    <printFailingErrors>true</printFailingErrors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.0.4</version>
+                <configuration>
+                    <excludeBugsFile>other/spotbugs.xml</excludeBugsFile>
+                </configuration>
+                <dependencies>
+                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>4.0.6</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.1</version>
+                <dependencies>
+                    <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>8.34</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>other/checkstyle-coursera.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                    <suppressionsLocation>other/checkstyle-suppressions.xml</suppressionsLocation>
+                </configuration>
+<!--                disabled checkstyle verification because of unknown error for the time being -->
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <id>validate</id>-->
+                <!--                        <phase>validate</phase>-->
+                <!--                        <goals>-->
+                <!--                            <goal>check</goal>-->
+                <!--                        </goals>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.8</source>
@@ -52,7 +129,7 @@
                             <descriptors>
                                 <descriptor>src/assembly/sample.xml</descriptor>
                             </descriptors>
-                            <finalName>${artifactId}</finalName>
+                            <finalName>test</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
