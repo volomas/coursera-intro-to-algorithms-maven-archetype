@@ -5,17 +5,19 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
+    <properties>
+        <algs4.version>1.0.4</algs4.version>
+    </properties>
     <packaging>pom</packaging>
 
     <name>Project contains an assignment for Coursera's Algorithms course</name>
     <url>https://www.coursera.org/learn/introduction-to-algorithms/</url>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/edu.princeton.cs/algs4 -->
         <dependency>
             <groupId>edu.princeton.cs</groupId>
-            <artifactId>algs4.jar</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/algs4.jar</systemPath>
+            <artifactId>algs4</artifactId>
+            <version>${algs4.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -58,4 +60,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>algs4 bintray</id>
+            <name>algs4 repo</name>
+            <url>https://dl.bintray.com/algs4/maven/</url>
+        </repository>
+    </repositories>
 </project>
